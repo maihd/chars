@@ -1,16 +1,12 @@
 use std::collections::HashSet;
 
 pub fn remove_duplicated_chars(content: &str) -> String {
-    let mut chars = HashSet::new();
-    for c in content.chars() {
-        chars.insert(c);
-    }
+    let chars = content.chars().collect::<HashSet<_>>();
 
     let mut chars_vec = chars.into_iter().collect::<Vec<_>>();
     chars_vec.sort();
 
-    chars_vec.into_iter()
-        .collect::<String>()
+    chars_vec.into_iter().collect::<String>()
 }
 
 #[test]
